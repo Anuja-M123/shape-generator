@@ -1,0 +1,159 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shape Detector</title>
+    <style>
+        *{
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .container{
+            position:relative;
+            width: 100%;
+            height: 100vh;
+            background-color: rgb(31, 17, 24);
+        }
+        .main{
+            width: 100%;
+            height: 400px;
+            
+            padding: 10px;
+            background-image:url('https://img.pikbest.com/backgrounds/20210501/abstract-flat-colorful-geometric-shapes-background_5899401.jpg!bwr800');
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .shape{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+            height: 70vh;
+            background-color: rgb(126, 227, 245);
+        }
+        .square{
+            margin: 15px;
+            width: 72px;
+            height: 72px;
+            background-color: rgb(174, 40, 40);
+        }
+        .rectangle{
+            margin: 15px;
+            width: 100px;
+            height: 60px;
+            background-color: rgb(3, 38, 108);
+        }
+        .circle{
+            margin: 15px;
+            width: 72px;
+            height: 72px;
+            border-radius: 100%;
+            background-color: black;
+        }
+        #opt{
+            width: 100px;
+            height: 4vh;
+            background-color:rgb(75, 34, 10);
+            border-radius: 12px;
+            border: none;
+            font-weight: 900;
+            color: white;
+            font-size: 18px;
+        }
+        #num{
+            width: 190px;
+            height: 8vh;
+            background-color: rgb(219, 255, 14);
+            border-radius: 22px;
+            border: none;
+            font-weight: 900;
+            color: rgb(0, 0, 0);
+            font-size: 18px;
+        }
+        #generate{
+            width: 120px;
+            height: 4vh;
+            background-color:rgb(20, 71, 255);
+            border-radius: 12px;
+            border: none;
+            font-weight: 900;
+            color: rgb(255, 255, 255);
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body style="background-color:aqua;">
+    <center>
+    <section>
+        <div class="container">
+        <div class="main">
+            <h1 style="font-size: 32px; color:rgb(43, 42, 40); font-family:'Courier New', Courier, monospace;font-weight: 0" align="center">Shape Generator</h1>
+            <h3 style="font-size: 32px; color:rgb(22, 21, 23); font-weight: 500px;font-style:italic;">Select shape, 
+                <br>number of shapes, color</h3>
+            <select id="opt">
+                <option>Circle</option>
+                <option>Rectangle</option>
+                <option>Square</option>
+            </select>
+            <input type="color" name="" id="col">
+            <input type="number" placeholder="Number of shapes" name="" id="num"><br><br>
+            <button id="generate" onclick="myFunction()">Generate</button>
+        </div>
+        <div class="shape" id="Shape1"></div>
+    </div>
+    </section>
+    <script>
+        var temp = 1;
+        function myFunction() {
+            var getShape = document.getElementById("opt").value;
+            var getColor = document.getElementById("col").value;
+            var getNumber = document.getElementById("num").value
+            console.log(getShape)
+            console.log(getColor)
+            console.log(getNumber)
+            for (i = 0; i < getNumber; i++) {
+            if(getShape == "Square") {
+                var square = document.createElement('div')
+                square.className = 'square'
+                document.getElementById("Shape1").appendChild(square)
+                square.style.backgroundColor = `${getColor}`
+                square.style.display = 'flex'
+                square.style.justifyContent = 'center'
+                square.style.alignItems = 'center'
+                var text = document.createElement('p');
+                text.innerHTML = temp++
+                square.appendChild(text)
+
+            }
+            else if(getShape == "Rectangle") {
+                var rectangle= document.createElement('div')
+                rectangle.className = 'rectangle'
+                document.getElementById("Shape1").appendChild(rectangle)
+                rectangle.style.backgroundColor = `${getColor}`
+                rectangle.style.display = 'flex'
+                rectangle.style.justifyContent = 'center'
+                rectangle.style.alignItems = 'center'
+                var text = document.createElement('p');
+                text.innerHTML = temp++
+                rectangle.appendChild(text)
+            }
+            else {
+                var circle= document.createElement('div')
+                circle.className = 'circle'
+                document.getElementById("Shape1").appendChild(circle)
+                circle.style.backgroundColor = `${getColor}`
+                circle.style.display = 'flex'
+                circle.style.justifyContent = 'center'
+                circle.style.alignItems = 'center'
+                var text = document.createElement('p');
+                text.innerHTML = temp++
+                circle.appendChild(text)
+            }
+        }
+        }
+    </script>
+    </center>
+</body>
+</html>
